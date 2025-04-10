@@ -1,8 +1,10 @@
-html, 
-body {
-  overflow: hidden;
-  overscroll-behavior: none;
+html {
   height: 100%;
+}
+
+body {
+  min-height: 100%;
+  overscroll-behavior: none;
 }
 
 .bg-gradient {
@@ -46,6 +48,6 @@ body {
 }
 
 .mobile-menu {
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  background-color: transparent;
 }

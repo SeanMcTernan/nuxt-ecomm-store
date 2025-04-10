@@ -31,16 +31,21 @@
             leave-from-class="opacity-100 scale-100"
             leave-to-class="opacity-0 scale-95"
           >
-            <input 
-              v-if="isSearchVisible"
-              ref="searchInput"
-              v-model="searchQuery"
-              type="text" 
-              placeholder="Search products..."
-              class="w-64 px-4 py-2 rounded-full border-0 ring-1 ring-[var(--custom-blue)] ring-opacity-30 focus:outline-none focus:ring-2 focus:ring-[var(--custom-blue)] focus:ring-opacity-10 mr-2 shadow-sm"
-              @keyup.enter="handleSearch"
-              @keyup.esc="hideSearch"
-            >
+            <div class="relative w-64">
+              <input 
+                v-if="isSearchVisible"
+                ref="searchInput"
+                v-model="searchQuery"
+                type="text" 
+                placeholder="Search products..."
+                class="w-full px-4 py-2 rounded-full border-0 ring-1 ring-[var(--custom-blue)] ring-opacity-30 focus:outline-none focus:ring-2 focus:ring-[var(--custom-blue)] focus:ring-opacity-10 mr-2 shadow-sm bg-white/50 backdrop-blur-sm"
+                @keyup.enter="handleSearch"
+                @keyup.esc="hideSearch"
+              >
+              <div v-if="searchQuery && isSearchVisible" class="absolute top-full left-0 right-0 mt-2 backdrop-blur-sm rounded-lg overflow-hidden">
+                <div class="p-4 text-gray-600">Search products...</div>
+              </div>
+            </div>
           </Transition>
           <button 
             class="p-2 rounded-full transition-all duration-200 hover:bg-[var(--custom-pink)]/10 hover:backdrop-blur-sm hover:shadow-[0_0_15px_rgba(238,130,238,0.4)] group"
@@ -135,6 +140,15 @@ const navigationLinks: NavigationLink[] = [
   { to: '/sale', text: 'Sale' }
 ];
 
+  /**
+   * Get the current rotation of the logo from its transform style and save it
+   * as a CSS variable.
+   *
+   * This is necessary because we can't directly animate from the current
+   * rotation (which is implicitly set by the spin animation) to a specific
+   * new rotation. Instead, we set the current rotation as a CSS variable and
+   * then animate from that variable to the new rotation.
+   */
 const handleLogoHover = () => {
   if (logo.value) {
     const style = window.getComputedStyle(logo.value);
