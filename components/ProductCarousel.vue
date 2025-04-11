@@ -15,24 +15,26 @@
       <!-- Products Container -->
       <div 
         ref="scrollContainer"
-        class="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory no-scrollbar"
+        class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory no-scrollbar"
       >
         <div 
           v-for="product in props.products" 
           :key="product.id" 
-          class="flex-none w-64 snap-start"
+          class="flex-none w-52 snap-start"
         >
           <NuxtLink :to="product.link" class="block">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-              <NuxtImg
-                :src="product.image"
-                :alt="product.title"
-                class="w-full h-48 object-cover hover:opacity-75 transition duration-300"
-                format="webp"
-              />
-              <div class="p-4">
-                <h3 class="font-bold text-lg mb-1">{{ product.title }}</h3>
-                <p class="text-gray-600 font-medium">${{ product.price.toFixed(2) }}</p>
+            <div class="bg-white/30 backdrop-blur-sm rounded-lg shadow-md overflow-hidden hover:bg-white/70 transition-colors duration-300">
+              <div class="flex items-center justify-center p-3 h-32 bg-gray-30/30">
+                <NuxtImg
+                  :src="product.image"
+                  :alt="product.title"
+                  class="max-h-20 sm:max-h-28 w-auto object-contain hover:opacity-75 transition duration-300"
+                  format="webp"
+                />
+              </div>
+              <div class="p-3">
+                <h3 class="font-bold text-base mb-1 line-clamp-1">{{ product.title }}</h3>
+                <p class="text-gray-900 font-semibold">${{ product.price.toFixed(2) }}</p>
               </div>
             </div>
           </NuxtLink>
