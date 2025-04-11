@@ -88,7 +88,7 @@
         leave-from-class="opacity-100 translate-x-0"
         leave-to-class="opacity-0 -translate-x-full"
       >
-        <div v-if="isMobileMenuOpen" class="fixed inset-0 z-50 mobile-menu">
+        <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] mobile-menu">
           <div class="container mx-auto px-6 py-20">
             <!-- Mobile Search -->
             <div class="mb-8">
@@ -140,15 +140,6 @@ const navigationLinks: NavigationLink[] = [
   { to: '/sale', text: 'Sale' }
 ];
 
-  /**
-   * Get the current rotation of the logo from its transform style and save it
-   * as a CSS variable.
-   *
-   * This is necessary because we can't directly animate from the current
-   * rotation (which is implicitly set by the spin animation) to a specific
-   * new rotation. Instead, we set the current rotation as a CSS variable and
-   * then animate from that variable to the new rotation.
-   */
 const handleLogoHover = () => {
   if (logo.value) {
     const style = window.getComputedStyle(logo.value);
