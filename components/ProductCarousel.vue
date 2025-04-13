@@ -18,7 +18,7 @@
         class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory no-scrollbar"
       >
         <div 
-          v-for="product in props.products" 
+          v-for="product in products" 
           :key="product.id" 
           class="flex-none w-52 snap-start"
         >

@@ -1,10 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image-edge', '@nuxtjs/apollo'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/apollo'],
 
   image: {
-    domains: ['mdbootstrap.com', 'cdn.shopify.com']
+    provider: 'netlify',
+    domains: [
+      'cdn.shopify.com',
+      'images.contentstack.io'
+    ]
   },
 
   apollo: {
