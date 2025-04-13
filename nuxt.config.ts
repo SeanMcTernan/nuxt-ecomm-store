@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         httpEndpoint: process.env.SHOPIFY_STOREFRONT_HOST,
         httpLinkOptions: {
           headers: {
-            'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
+            'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_PUBLIC_ACCESS_TOKEN
           },
         }
       }
