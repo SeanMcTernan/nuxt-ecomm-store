@@ -1,1 +1,2 @@
-
+[images]
+remote_images = ["cdn.shopify.com", "images.contentstack.io"]
