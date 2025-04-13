@@ -1,5 +1,5 @@
 <template>
-    <nav class="py-2 md:py-4 relative w-full">
+    <nav class="py-2 md:py-4 fixed top-0 left-0 right-0 w-full z-50 bg-white/40 backdrop-blur-sm shadow-sm">
       <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div class="flex items-center">
           <NuxtLink to="/" class="flex-shrink-0 fixed top-2 left-4 z-[60] md:static md:top-auto md:left-auto md:z-auto">
