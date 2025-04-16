@@ -14,12 +14,11 @@
             format="webp"
             priority
             preload
-            sizes="(max-width: 640px) 180px, (max-width: 768px) 240px, 300px"
-            width="300"
+            sizes="sm:45vw md:35vw lg:30vw"
+            width="400"
             height="600"
-            quality="85"
+            quality="90"
             loading="eager"
-            placeholder
             @load="manImageLoaded = true"
           />
           <NuxtImg
@@ -32,12 +31,11 @@
             format="webp"
             priority
             preload
-            sizes="(max-width: 640px) 180px, (max-width: 768px) 240px, 300px"
-            width="300"
+            sizes="sm:45vw md:35vw lg:30vw"
+            width="400"
             height="600"
-            quality="85"
+            quality="90"
             loading="eager"
-            placeholder
             @load="womanImageLoaded = true"
           />
         </div>
