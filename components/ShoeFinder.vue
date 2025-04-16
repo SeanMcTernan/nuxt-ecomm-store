@@ -1,6 +1,6 @@
 <template>
-    <section class="relative min-h-[60vh] overflow-hidden">
-      <div class="container mx-auto px-4 md:px-6 pt-24 pb-6 relative z-10">
+    <section class="relative min-h-[40vh] md:min-h-[60vh] overflow-hidden">
+      <div class="container mx-auto px-4 md:px-6 pt-12 md:pt-24 pb-4 md:pb-6 relative z-10">
         <div class="flex flex-col md:flex-row items-center justify-between gap-8">  
           <!-- Shop Buttons -->
           <div class="w-full md:w-1/3 flex flex-col gap-4">
