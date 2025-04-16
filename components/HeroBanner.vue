@@ -7,14 +7,22 @@
           <NuxtImg
             src="https://images.contentstack.io/v3/assets/blt9b6df677776ba2fe/blt011e5dcc2888ffd2/67f81e9f22edb05d2c80493a/Man_Running.png"
             alt="Man Running"
-            class="w-[40%] h-auto object-contain relative z-10 -mr-8 max-h-[70vh]"
+            :class="[
+              'w-[40%] h-auto object-contain relative z-10 -mr-8 max-h-[70vh] transition-opacity duration-200 ease-in',
+              { 'opacity-0': !manImageLoaded }
+            ]"
             format="webp"
+            @load="manImageLoaded = true"
           />
           <NuxtImg
             src="https://images.contentstack.io/v3/assets/blt9b6df677776ba2fe/blt8490ef9609b3ca36/67f81da8c969c96cf4dd50d6/Woman_Running.png"
             alt="Woman Running"
-            class="w-[40%] h-auto object-contain relative z-20 max-h-[70vh]"
+            :class="[
+              'w-[40%] h-auto object-contain relative z-20 max-h-[70vh] transition-opacity duration-200 ease-in',
+              { 'opacity-0': !womanImageLoaded }
+            ]"
             format="webp"
+            @load="womanImageLoaded = true"
           />
         </div>
 
@@ -35,9 +43,14 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const manImageLoaded = ref(false);
+const womanImageLoaded = ref(false);
+
 const shopLinks = [
-  { to: '/womens', text: 'Shop Womens' },
   { to: '/mens', text: 'Shop Mens' },
+  { to: '/womens', text: 'Shop Womens' },
   { to: '/accessories', text: 'Shop Accessories' },
 ];
 </script>
