@@ -5,7 +5,8 @@
       <!-- Previous Button -->
       <button 
         @click="() => scrollLeft()"
-        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-shadow min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation"
+        aria-label="Scroll products left"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -22,7 +23,7 @@
           :key="product.id" 
           class="flex-none w-52 snap-start"
         >
-          <NuxtLink :to="product.link" class="block">
+          <NuxtLink :to="product.link" class="block min-h-[48px] p-2">
             <div class="bg-white/30 backdrop-blur-sm rounded-lg shadow-md overflow-hidden hover:bg-white/70 transition-colors duration-300">
               <div class="flex items-center justify-center p-3 h-32 bg-gray-30/30">
                 <NuxtImg
@@ -50,7 +51,8 @@
       <!-- Next Button -->
       <button 
         @click="() => scrollRight()"
-        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-shadow min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation"
+        aria-label="Scroll products right"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

@@ -2,6 +2,13 @@
 import { computed } from 'vue';
 import { getProductsQuery } from '../graphql/getProductsQuery';
 
+useHead({
+  title: 'Athletic Shoe Store | High Performance Running Shoes',
+  meta: [
+    { name: 'description', content: 'Shop our collection of high-performance athletic and running shoes. Find the perfect fit for your active lifestyle.' }
+  ]
+});
+
 interface ProductNode {
   id: string;
   title: string;

@@ -19,6 +19,7 @@
             height="600"
             quality="90"
             loading="eager"
+            placeholder
             @load="manImageLoaded = true"
           />
           <NuxtImg
@@ -36,6 +37,7 @@
             height="600"
             quality="90"
             loading="eager"
+            placeholder
             @load="womanImageLoaded = true"
           />
         </div>
@@ -46,7 +48,9 @@
             v-for="link in shopLinks"
             :key="link.to"
             :to="link.to"
-            class="bg-black text-white text-xl font-bold py-4 px-8 rounded-sm hover:bg-gray-800 transition-colors duration-200 text-center"
+            class="bg-black text-white text-xl font-bold py-4 px-8 rounded-sm hover:bg-gray-800 transition-colors duration-200 text-center min-h-[48px] min-w-[48px] block my-2"
+            :aria-label="`Navigate to ${link.text.toLowerCase()} section`"
+            role="button"
           >
             {{ link.text }}
           </NuxtLink>
