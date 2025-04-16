@@ -30,6 +30,7 @@
                   :alt="product.title"
                   class="max-h-20 sm:max-h-28 w-auto object-contain hover:opacity-75 transition duration-300"
                   format="webp"
+                  loading="lazy"
                 />
               </div>
               <div class="p-3">

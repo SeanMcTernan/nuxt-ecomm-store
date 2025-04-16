@@ -46,11 +46,12 @@ const formattedProducts = computed(() =>
 <template>
   <div>
     <HeroBanner />
-    <div class="my-20 px-8">
+    <div class="space-y-32 px-8">
       <ProductCarousel
         title="BEST SELLERS"
         :products="formattedProducts"
       />
+      <ShoeFinder />
     </div>
   </div>
 </template>
