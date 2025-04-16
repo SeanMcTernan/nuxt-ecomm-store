@@ -18,7 +18,7 @@
         class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory no-scrollbar"
       >
         <div 
-          v-for="product in products" 
+          v-for="product in props.products" 
           :key="product.id" 
           class="flex-none w-52 snap-start"
         >
@@ -56,7 +56,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, withDefaults, defineProps } from 'vue';
+
+const scrollContainer = ref<HTMLElement | null>(null);
+
+function scrollLeft() {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({
+      left: -scrollContainer.value.offsetWidth,
+      behavior: 'smooth'
+    });
+  }
+}
+
+function scrollRight() {
+  if (scrollContainer.value) {
+    scrollContainer.value.scrollBy({
+      left: scrollContainer.value.offsetWidth,
+      behavior: 'smooth'
+    });
+  }
+}
 
 interface Product {
   id: number | string;
@@ -66,30 +86,13 @@ interface Product {
   link: string;
 }
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   title: string;
   products: Product[];
-}>();
-
-const scrollContainer = ref<HTMLElement | null>(null);
-
-const scrollLeft = () => {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({
-      left: -scrollContainer.value.offsetWidth,
-      behavior: 'smooth'
-    });
-  }
-};
-
-const scrollRight = () => {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({
-      left: scrollContainer.value.offsetWidth,
-      behavior: 'smooth'
-    });
-  }
-};
+}>(), {
+  title: '',
+  products: () => []
+});
 </script>
 
 <style scoped>

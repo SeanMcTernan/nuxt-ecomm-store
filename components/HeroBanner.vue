@@ -12,6 +12,8 @@
               { 'opacity-0': !manImageLoaded }
             ]"
             format="webp"
+            priority
+            preload
             @load="manImageLoaded = true"
           />
           <NuxtImg
@@ -22,6 +24,8 @@
               { 'opacity-0': !womanImageLoaded }
             ]"
             format="webp"
+            priority
+            preload
             @load="womanImageLoaded = true"
           />
         </div>
