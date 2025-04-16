@@ -29,3 +29,14 @@ logs
 # certs
 localhost.pem
 localhost-key.pem
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress/results/
+node_modules/CypressBinary/
+cypress.env.json
+localhost-key.pem
+
+
