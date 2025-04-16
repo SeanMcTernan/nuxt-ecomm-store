@@ -1,5 +1,42 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  experimental: {
+    payloadExtraction: true,
+    renderJsonPayloads: true,
+  },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
+
+  build: {
+    transpile: ['@apollo/client', '@vue/apollo-composable'],
+  },
+
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'group-product': [
+              './components/ProductCard.vue',
+              './components/ProductCarousel.vue',
+            ],
+            'group-hero': [
+              './components/HeroBanner.vue',
+              './components/ShoeFinder.vue',
+            ],
+          },
+        },
+      },
+      chunkSizeWarningLimit: 1000,
+    },
+    optimizeDeps: {
+      include: ['@apollo/client', '@vue/apollo-composable'],
+    },
+  },
   app: {
     head: {
       htmlAttrs: {
