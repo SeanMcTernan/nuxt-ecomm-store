@@ -1,31 +1,41 @@
 <template>
-  <section class="relative min-h-[80vh] overflow-hidden">
-    <div class="container mx-auto px-4 md:px-6 pt-24 pb-12 relative z-10">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+  <section class="relative h-screen flex items-center overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6 relative z-10 h-full flex items-center">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 h-full">
         <!-- Athletes Images -->
-        <div class="relative w-full md:w-2/3 flex justify-center items-end">
+        <div class="relative w-full md:w-2/3 flex justify-center items-center h-full py-20">
           <NuxtImg
             src="https://images.contentstack.io/v3/assets/blt9b6df677776ba2fe/blt011e5dcc2888ffd2/67f81e9f22edb05d2c80493a/Man_Running.png"
             alt="Man Running"
             :class="[
-              'w-[40%] h-auto object-contain relative z-10 -mr-8 max-h-[70vh] transition-opacity duration-200 ease-in',
+              'h-full w-auto object-contain relative z-10 -mr-8 transition-opacity duration-200 ease-in max-w-[45%]',
               { 'opacity-0': !manImageLoaded }
             ]"
             format="webp"
             priority
             preload
+            sizes="sm:45vw md:35vw lg:30vw"
+            width="400"
+            height="600"
+            quality="90"
+            loading="eager"
             @load="manImageLoaded = true"
           />
           <NuxtImg
             src="https://images.contentstack.io/v3/assets/blt9b6df677776ba2fe/blt8490ef9609b3ca36/67f81da8c969c96cf4dd50d6/Woman_Running.png"
             alt="Woman Running"
             :class="[
-              'w-[40%] h-auto object-contain relative z-20 max-h-[70vh] transition-opacity duration-200 ease-in',
+              'h-full w-auto object-contain relative z-20 transition-opacity duration-200 ease-in max-w-[45%]',
               { 'opacity-0': !womanImageLoaded }
             ]"
             format="webp"
             priority
             preload
+            sizes="sm:45vw md:35vw lg:30vw"
+            width="400"
+            height="600"
+            quality="90"
+            loading="eager"
             @load="womanImageLoaded = true"
           />
         </div>
