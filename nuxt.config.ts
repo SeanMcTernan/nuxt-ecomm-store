@@ -5,11 +5,11 @@ export default defineNuxtConfig({
     renderJsonPayloads: true,
   },
 
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-    },
-  },
+  // nitro: {
+  //   prerender: {
+  //     crawlLinks: true,
+  //   },
+  // },
 
   build: {
     transpile: ['@apollo/client', '@vue/apollo-composable'],
