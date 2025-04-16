@@ -15,12 +15,14 @@
           </div>
           <!-- Athletes Images -->
           <div class="relative w-full md:w-2/3 flex justify-center items-end">
-            <img
-              src="https://images.contentstack.io/v3/assets/blt9b6df677776ba2fe/blt7c9621cb952ade1c/67ffdd339ca9d00e1552133f/Shoe_Selector.gif"
-              alt="Woman Running"
+            <video
+              src="https://assets.contentstack.io/v3/assets/blt9b6df677776ba2fe/blt0e1610992c4ca1d7/68001753e696da08f55a4127/shoe_finder.webm"
               class="w-[40%] h-auto object-contain relative z-20 max-h-[70vh]"
-              loading="lazy"
-            />
+              autoplay
+              loop
+              muted
+              playsinline
+            >Your browser does not support the video tag.</video>
           </div>
         </div>
       </div>
