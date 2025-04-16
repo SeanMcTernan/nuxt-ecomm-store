@@ -31,6 +31,11 @@
                   class="max-h-20 sm:max-h-28 w-auto object-contain hover:opacity-75 transition duration-300"
                   format="webp"
                   loading="lazy"
+                  width="200"
+                  height="200"
+                  sizes="sm:100px md:150px lg:200px"
+                  quality="80"
+                  placeholder
                 />
               </div>
               <div class="p-3">
