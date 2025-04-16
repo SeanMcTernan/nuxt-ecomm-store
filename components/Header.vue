@@ -2,7 +2,7 @@
     <nav class="py-2 md:py-4 fixed top-0 left-0 right-0 w-full z-50 bg-white/40 backdrop-blur-sm shadow-sm">
       <div class="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div class="flex items-center">
-          <NuxtLink to="/" class="flex-shrink-0 fixed top-2 left-4 z-[60] md:static md:top-auto md:left-auto md:z-auto">
+          <NuxtLink to="/" class="flex-shrink-0 fixed top-2 left-4 z-[110] md:static md:top-auto md:left-auto md:z-auto">
             <img 
               class="h-12 w-12 md:h-20 md:w-20 spin-animation" 
               src="/logo.svg" 
@@ -57,24 +57,36 @@
           </button>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile Menu Buttons -->
+        <!-- Open Button -->
         <button 
-          class="md:hidden p-2 transition-all duration-200 group fixed top-2 right-4 z-[60]"
-          @click="toggleMobileMenu"
+          v-if="!isMobileMenuOpen"
+          class="md:hidden p-2 transition-all duration-200 group fixed top-2 right-4 z-[110]"
+          @click="openMobileMenu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" 
-            :class="[
-              'h-6 w-6 transition-all duration-200',
-              isMobileMenuOpen 
-                ? 'text-gray-600 group-hover:text-gray-800 rotate-90' 
-                : 'text-gray-500 group-hover:text-gray-700'
-            ]" 
+            class="h-6 w-6 transition-all duration-200 text-gray-500 group-hover:text-gray-700"
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
           >
-            <path v-if="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Close Button -->
+        <button 
+          v-if="isMobileMenuOpen"
+          class="md:hidden p-2 transition-all duration-200 group fixed top-2 right-4 z-[110]"
+          @click="closeMobileMenu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" 
+            class="h-6 w-6 transition-all duration-200 text-gray-600 group-hover:text-gray-800 rotate-90"
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
@@ -88,15 +100,15 @@
         leave-from-class="opacity-100 translate-x-0"
         leave-to-class="opacity-0 -translate-x-full"
       >
-        <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[100] mobile-menu">
-          <div class="container mx-auto px-6 py-20">
+        <div v-if="isMobileMenuOpen" class="fixed inset-0 z-[105] mobile-menu bg-white/70 backdrop-blur-md backdrop-saturate-200 backdrop-brightness-110">
+          <div class="container mx-auto px-6 py-20 bg-white/75 min-h-screen backdrop-blur-sm">
             <!-- Mobile Search -->
             <div class="mb-8">
               <input 
                 v-model="searchQuery"
                 type="text" 
                 placeholder="Search products..."
-                class="w-full px-4 py-2 rounded-full border-0 ring-1 ring-[var(--custom-blue)] ring-opacity-30 focus:outline-none focus:ring-2 focus:ring-[var(--custom-blue)] focus:ring-opacity-10 shadow-sm"
+                class="w-full px-4 py-2 rounded-full border-0 ring-1 ring-[var(--custom-blue)] ring-opacity-30 focus:outline-none focus:ring-2 focus:ring-[var(--custom-blue)] focus:ring-opacity-10 shadow-sm bg-white/80 backdrop-blur-sm"
                 @keyup.enter="handleMobileSearch"
               >
             </div>
@@ -171,6 +183,10 @@ const handleSearch = () => {
     // TODO: Implement actual search functionality
   }
   hideSearch();
+};
+
+const openMobileMenu = () => {
+  isMobileMenuOpen.value = true;
 };
 
 const toggleMobileMenu = () => {

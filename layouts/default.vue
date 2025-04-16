@@ -1,9 +1,9 @@
 <template>
-    <div class="min-h-screen bg-gradient">
-      <div class="px-20 pt-24 md:pt-32">
-        <Header />
-        <slot />
-        <Footer />
-      </div>
-    </div>
-  </template>
+  <div class="min-h-screen bg-gradient flex flex-col">
+    <Header />
+    <main class="flex-grow px-4 sm:px-6 lg:px-8 pt-24 md:pt-32">
+      <slot />
+    </main>
+    <Footer />
+  </div>
+</template>
