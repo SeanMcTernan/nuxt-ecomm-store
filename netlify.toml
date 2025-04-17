@@ -13,4 +13,4 @@ TERM = "xterm"
 package = "netlify-plugin-cypress"
 [plugins.inputs]
 # allowed values: electron, chromium
-browser = "electron"
+browser = "chromium"
