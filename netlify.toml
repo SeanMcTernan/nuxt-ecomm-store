@@ -11,6 +11,5 @@ TERM = "xterm"
 [[plugins]]
 # runs Cypress tests against the deployed URL
 package = "netlify-plugin-cypress"
-[plugins.inputs.postBuild]
-enable = true
+[plugins.inputs]
 browser = "electron"
