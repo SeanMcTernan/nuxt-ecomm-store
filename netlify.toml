@@ -1,2 +1,22 @@
 [images]
 remote_images = ["cdn.shopify.com", "images.contentstack.io"]
+
+[build.environment]
+CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
+TERM = "xterm"
+# Force Cypress to run in headless mode
+CYPRESS_RUN_BINARY = "xvfb-run ./node_modules/.bin/cypress run"
+
+
+[[plugins]]
+package = "netlify-plugin-cypress"
+[plugins.inputs]
+# run E2E tests against the deployed URL
+record = true
+group = 'deployed'
+[plugins.inputs.postBuild]
+# run E2E tests against locally built site
+# before deploying it
+enable = true
+record = true
+group = 'built'
