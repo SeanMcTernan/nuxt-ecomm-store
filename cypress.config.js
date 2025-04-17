@@ -1,9 +1,13 @@
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
-  projectId: "g3k6a5",
+  pageLoadTimeout: 120000,
   e2e: {
-    baseUrl: 'http://localhost:8888',
+    setupNodeEvents(on, config) {
+
+    },
+    baseUrl: "http://localhost:8888/",
+    experimentalSessionAndOrigin: true,
     supportFile: 'cypress/support/e2e.ts',
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
   },
