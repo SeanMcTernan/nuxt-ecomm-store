@@ -14,10 +14,10 @@
             format="webp"
             priority
             preload
-            sizes="sm:45vw md:35vw lg:30vw"
-            width="400"
+            sizes="(max-width: 640px) 45vw, (max-width: 768px) 35vw, 30vw"
+            width="320,480,640"
             height="600"
-            quality="90"
+            quality="85"
             loading="eager"
             placeholder
             @load="manImageLoaded = true"
@@ -32,10 +32,10 @@
             format="webp"
             priority
             preload
-            sizes="sm:45vw md:35vw lg:30vw"
-            width="400"
+            sizes="(max-width: 640px) 45vw, (max-width: 768px) 35vw, 30vw"
+            width="320,480,640"
             height="600"
-            quality="90"
+            quality="85"
             loading="eager"
             placeholder
             @load="womanImageLoaded = true"

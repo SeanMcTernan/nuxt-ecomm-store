@@ -32,10 +32,10 @@
                   class="max-h-20 sm:max-h-28 w-auto object-contain hover:opacity-75 transition duration-300"
                   format="webp"
                   loading="lazy"
-                  width="200"
-                  height="200"
-                  sizes="sm:100px md:150px lg:200px"
-                  quality="80"
+                  width="160,200,240"
+                  height="240"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 200px, 240px"
+                  quality="85"
                   placeholder
                 />
               </div>

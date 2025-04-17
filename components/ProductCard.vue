@@ -31,6 +31,12 @@ defineProps({
           :src="image"
           class="shadow-lg rounded-lg opacity-1 hover:opacity-75 transition duration-300 ease-in-out w-full"
           format="webp"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          width="320,480,640"
+          height="480"
+          quality="85"
+          loading="lazy"
+          placeholder
         />
       </NuxtLink>
       <div class="p-6">
