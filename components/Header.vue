@@ -191,7 +191,9 @@ const handleSearch = () => {
 };
 
 const openMobileMenu = () => {
+  console.log('Opening mobile menu...');
   isMobileMenuOpen.value = true;
+  console.log('Mobile menu state:', isMobileMenuOpen.value);
 };
 
 const toggleMobileMenu = () => {
