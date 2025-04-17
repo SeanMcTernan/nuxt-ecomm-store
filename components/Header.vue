@@ -50,6 +50,7 @@
           <button 
             class="p-2 rounded-full transition-all duration-200 hover:bg-[var(--custom-pink)]/10 hover:backdrop-blur-sm hover:shadow-[0_0_15px_rgba(238,130,238,0.4)] group"
             @click="toggleSearch"
+            aria-label="Toggle search"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 group-hover:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -63,6 +64,8 @@
           v-if="!isMobileMenuOpen"
           class="md:hidden p-2 transition-all duration-200 group fixed top-2 right-4 z-[110]"
           @click="openMobileMenu"
+          aria-label="Open menu"
+          aria-expanded="false"
         >
           <svg xmlns="http://www.w3.org/2000/svg" 
             class="h-6 w-6 transition-all duration-200 text-gray-500 group-hover:text-gray-700"
@@ -79,6 +82,8 @@
           v-if="isMobileMenuOpen"
           class="md:hidden p-2 transition-all duration-200 group fixed top-2 right-4 z-[110]"
           @click="closeMobileMenu"
+          aria-label="Close menu"
+          aria-expanded="true"
         >
           <svg xmlns="http://www.w3.org/2000/svg" 
             class="h-6 w-6 transition-all duration-200 text-gray-600 group-hover:text-gray-800 rotate-90"
