@@ -65,10 +65,10 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint: process.env.SHOPIFY_STOREFRONT_HOST,
+        httpEndpoint: 'https://mock-store.myshopify.com/api/2024-01/graphql',
         httpLinkOptions: {
           headers: {
-            'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_PUBLIC_ACCESS_TOKEN
+            'X-Shopify-Storefront-Access-Token': 'mock-token'
           },
         }
       }
