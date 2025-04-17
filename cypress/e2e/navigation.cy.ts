@@ -12,7 +12,7 @@ describe('Navigation', () => {
     cy.get('button[aria-label="Open menu"]').should('be.visible')
   })
 
-  it('should open mobile menu when clicking menu button', () => {
+  it('should open and close mobile menu when clicking menu button', () => {
     // Wait for button and ensure it's ready
     cy.get('button[aria-label="Open menu"]')
       .should('exist')
@@ -32,5 +32,20 @@ describe('Navigation', () => {
         cy.contains('a', 'Accessories').should('be.visible')
         cy.contains('a', 'Sale').should('be.visible')
       })
+
+    // Click close button
+    cy.get('button[aria-label="Close menu"]')
+      .should('exist')
+      .and('be.visible')
+      .click()
+
+    // Verify menu is closed
+    cy.get('.mobile-menu')
+      .should('not.exist')
+
+    // Verify open button is back
+    cy.get('button[aria-label="Open menu"]')
+      .should('exist')
+      .and('be.visible')
   })
 })
