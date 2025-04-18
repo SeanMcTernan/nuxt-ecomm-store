@@ -86,7 +86,7 @@ touch pre-push
 chmod +x pre-push
 ```
 
-Then add this script
+Then add this script to your code base. 
 
 ```
 #!/usr/bin/env bash
