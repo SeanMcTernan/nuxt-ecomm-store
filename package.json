@@ -6,7 +6,6 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test:e2e": "start-server-and-test 'ntl dev' http://localhost:8888 cypress:run",
-    "test:component": "cypress run --component",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
