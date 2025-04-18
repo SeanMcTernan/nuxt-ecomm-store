@@ -86,7 +86,7 @@ touch pre-push
 chmod +x pre-push
 ```
 
-Then add this script to your code base. 
+Then add this script to your .git folder:
 
 ```
 #!/usr/bin/env bash
