@@ -21,9 +21,6 @@ jobs:
             echo ".windsurfrules has changed compared to the default branch. Please revert changes before proceeding."
             exit 1
           fi
-        shell: bash
-          fi
-        shell: bash
 
       - name: Install Node.js
         uses: actions/setup-node@v3
