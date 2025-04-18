@@ -1,4 +1,4 @@
-name: Component Tests
+name: Quality Testing
 on: [push]
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
         run: pnpm test:component
         env:
           CI: true
-          
+
       # Trigger Netlify build only if both linting and component tests pass
       # The if: success() condition ensures all previous steps must have succeeded
       - name: Trigger Netlify build
