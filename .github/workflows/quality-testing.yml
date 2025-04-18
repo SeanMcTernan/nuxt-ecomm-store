@@ -6,22 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4      - name: Ensure .windsurfrules is present and unchanged
-                id: check-windsurfrules
-                run: |
-                  if [ ! -f .windsurfrules ]; then
-                    echo ".windsurfrules file is missing."
-                    exit 1
-                  fi
-                  if git rev-parse HEAD^ >/dev/null 2>&1; then
-                    if ! git diff --quiet HEAD^ HEAD -- .windsurfrules; then
-                      echo ".windsurfrules has changed in this commit. Please revert changes before proceeding."
-                      exit 1
-                    fi
-                  else
-                    echo "Only one commit in history; skipping .windsurfrules change check."
-                  fi
-                shell: bash
+        uses: actions/checkout@v4
 
       - name: Ensure .windsurfrules is present and unchanged
         id: check-windsurfrules
@@ -30,9 +15,13 @@ jobs:
             echo ".windsurfrules file is missing."
             exit 1
           fi
-          if ! git diff --quiet HEAD^ HEAD -- .windsurfrules; then
-            echo ".windsurfrules has changed in this commit. Please revert changes before proceeding."
-            exit 1
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            if ! git diff --quiet HEAD^ HEAD -- .windsurfrules; then
+              echo ".windsurfrules has changed in this commit. Please revert changes before proceeding."
+              exit 1
+            fi
+          else
+            echo "Only one commit in history; skipping .windsurfrules change check."
           fi
         shell: bash
 
