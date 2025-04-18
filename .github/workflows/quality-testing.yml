@@ -36,19 +36,21 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      # Run linting first - will block subsequent steps if it fails
+      - name: Run linting
+        id: lint
+        run: pnpm lint
+
+      # Only run component tests if linting passes
       - name: Run component tests
         id: component-tests
         run: pnpm test:component
         env:
           CI: true
           
-      # Trigger Netlify build only if component tests pass
-      # The previous step must succeed for this step to run
+      # Trigger Netlify build only if both linting and component tests pass
+      # The if: success() condition ensures all previous steps must have succeeded
       - name: Trigger Netlify build
         if: success()
         run: |
-          curl -X POST -d {} "$NETLIFY_BUILD_HOOK_URL"
-        env:
-          NETLIFY_BUILD_HOOK_URL: https://api.netlify.com/build_hooks/680288d5d4da8a1cf8f9f7e7
-          # For production use, store this URL in GitHub secrets:
-          # NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+          curl -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK_URL }}"
