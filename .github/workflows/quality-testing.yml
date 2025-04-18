@@ -15,13 +15,13 @@ jobs:
             echo ".windsurfrules file is missing."
             exit 1
           fi
-          if git rev-parse HEAD^ >/dev/null 2>&1; then
-            if ! git diff --quiet HEAD^ HEAD -- .windsurfrules; then
-              echo ".windsurfrules has changed in this commit. Please revert changes before proceeding."
-              exit 1
-            fi
-          else
-            echo "Only one commit in history; skipping .windsurfrules change check."
+          # Fetch the default branch to compare against
+          git fetch origin main
+          if ! git diff --quiet origin/main -- .windsurfrules; then
+            echo ".windsurfrules has changed compared to the default branch. Please revert changes before proceeding."
+            exit 1
+          fi
+        shell: bash
           fi
         shell: bash
 
