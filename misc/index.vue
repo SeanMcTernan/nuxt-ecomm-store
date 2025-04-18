@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { getProductsQuery } from '../graphql/getProductsQuery';
 
-const variables = { first: 3 }
-const { data } = await useAsyncQuery(getProductsQuery, variables)
+const variables = { first: 3 };
+const { data } = await useAsyncQuery(getProductsQuery, variables);
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const { data } = await useAsyncQuery(getProductsQuery, variables)
         :price="`${node.priceRange.maxVariantPrice.amount} ${node.priceRange.maxVariantPrice.currencyCode}`"
         :link="`products/${node.handle}`"
         :description="node.description"
-      />      
+      />
     </div>
   </div>
 </template>

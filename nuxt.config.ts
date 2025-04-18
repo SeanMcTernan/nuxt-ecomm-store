@@ -20,14 +20,8 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            'group-product': [
-              './components/ProductCard.vue',
-              './components/ProductCarousel.vue',
-            ],
-            'group-hero': [
-              './components/HeroBanner.vue',
-              './components/ShoeFinder.vue',
-            ],
+            'group-product': ['./components/ProductCard.vue', './components/ProductCarousel.vue'],
+            'group-hero': ['./components/HeroBanner.vue', './components/ShoeFinder.vue'],
           },
         },
       },
@@ -40,40 +34,41 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: {
-        lang: 'en'
+        lang: 'en',
       },
       title: 'Athletic Shoe Store',
       titleTemplate: '%s | Athletic Shoe Store',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Shop our collection of high-performance athletic and running shoes.' }
-      ]
-    }
+        {
+          name: 'description',
+          content: 'Shop our collection of high-performance athletic and running shoes.',
+        },
+      ],
+    },
   },
   css: ['~/assets/css/main.css'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/apollo'],
 
   image: {
     provider: 'netlify',
-    domains: [
-      'cdn.shopify.com',
-      'images.contentstack.io'
-    ]
+    domains: ['cdn.shopify.com', 'images.contentstack.io'],
   },
 
   apollo: {
     clients: {
       default: {
-        httpEndpoint: process.env.SHOPIFY_STOREFRONT_HOST,
+        // Use fallback values for development if environment variables aren't set
+        httpEndpoint: process.env.SHOPIFY_STOREFRONT_HOST || 'https://mock-shop-graphql.netlify.app/api/graphql',
         httpLinkOptions: {
           headers: {
-            'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_PUBLIC_ACCESS_TOKEN
+            'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_PUBLIC_ACCESS_TOKEN || 'dummy-token-for-development',
           },
-        }
-      }
+        },
+      },
     },
   },
 
-  compatibilityDate: '2025-04-06'
-})
+  compatibilityDate: '2025-04-06',
+});

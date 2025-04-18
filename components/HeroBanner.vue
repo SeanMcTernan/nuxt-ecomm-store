@@ -9,7 +9,7 @@
             alt="Man Running"
             :class="[
               'h-full w-auto object-contain relative z-10 -mr-8 transition-opacity duration-200 ease-in max-w-[45%]',
-              { 'opacity-0': !manImageLoaded }
+              { 'opacity-0': !manImageLoaded },
             ]"
             format="webp"
             priority
@@ -27,7 +27,7 @@
             alt="Woman Running"
             :class="[
               'h-full w-auto object-contain relative z-20 transition-opacity duration-200 ease-in max-w-[45%]',
-              { 'opacity-0': !womanImageLoaded }
+              { 'opacity-0': !womanImageLoaded },
             ]"
             format="webp"
             priority

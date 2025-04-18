@@ -1,12 +1,10 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   pageLoadTimeout: 120000,
   e2e: {
-    setupNodeEvents(on, config) {
-
-    },
-    baseUrl: "http://localhost:8888/",
+    setupNodeEvents(on, config) {},
+    baseUrl: 'http://localhost:8888/',
     experimentalSessionAndOrigin: true,
     supportFile: 'cypress/support/e2e.ts',
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
@@ -21,4 +19,4 @@ export default defineConfig({
   },
   video: false,
   screenshotOnRunFailure: true,
-})
+});

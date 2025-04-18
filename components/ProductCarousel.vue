@@ -3,28 +3,37 @@
     <h2 class="text-center text-xl font-bold uppercase tracking-wider mb-8">{{ props.title }}</h2>
     <div class="relative">
       <!-- Previous Button -->
-      <button 
-        @click="() => scrollLeft()"
+      <button
         class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-shadow min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation"
         aria-label="Scroll products left"
+        @click="() => scrollLeft()"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
 
       <!-- Products Container -->
-      <div 
+      <div
         ref="scrollContainer"
         class="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory no-scrollbar"
       >
-        <div 
-          v-for="product in props.products" 
-          :key="product.id" 
-          class="flex-none w-52 snap-start"
-        >
+        <div v-for="product in props.products" :key="product.id" class="flex-none w-52 snap-start">
           <NuxtLink :to="product.link" class="block min-h-[48px] p-2">
-            <div class="bg-white/30 backdrop-blur-sm rounded-lg shadow-md overflow-hidden hover:bg-white/70 transition-colors duration-300">
+            <div
+              class="bg-white/30 backdrop-blur-sm rounded-lg shadow-md overflow-hidden hover:bg-white/70 transition-colors duration-300"
+            >
               <div class="flex items-center justify-center p-3 h-32 bg-gray-30/30">
                 <NuxtImg
                   :src="product.image"
@@ -49,12 +58,18 @@
       </div>
 
       <!-- Next Button -->
-      <button 
-        @click="() => scrollRight()"
+      <button
         class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-shadow min-h-[48px] min-w-[48px] flex items-center justify-center touch-manipulation"
         aria-label="Scroll products right"
+        @click="() => scrollRight()"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -71,7 +86,7 @@ function scrollLeft() {
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({
       left: -scrollContainer.value.offsetWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 }
@@ -80,34 +95,37 @@ function scrollRight() {
   if (scrollContainer.value) {
     scrollContainer.value.scrollBy({
       left: scrollContainer.value.offsetWidth,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 }
 
-interface Product {
-  id: number | string;
-  title: string;
-  price: number;
-  image: string;
-  link: string;
-}
+  interface Product {
+    id: number | string;
+    title: string;
+    price: number;
+    image: string;
+    link: string;
+  }
 
-const props = withDefaults(defineProps<{
-  title: string;
-  products: Product[];
-}>(), {
-  title: '',
-  products: () => []
-});
+const props = withDefaults(
+  defineProps<{
+      title: string;
+      products: Product[];
+    }>(),
+  {
+    title: '',
+    products: () => [],
+  },
+);
 </script>
 
 <style scoped>
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 </style>
