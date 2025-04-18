@@ -8,17 +8,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Ensure .windsurfrules is present and unchanged
-        id: check-windsurfrules
+      - name: Fail if .windsurfrules is present in the commit
+        id: fail-on-windsurfrules-change
         run: |
+          # Ensure .windsurfrules file exists
           if [ ! -f .windsurfrules ]; then
             echo ".windsurfrules file is missing."
             exit 1
           fi
-          # Fetch the default branch to compare against
+          # Fetch the default branch for comparison
           git fetch origin main
-          if ! git diff --quiet origin/main -- .windsurfrules; then
-            echo ".windsurfrules has changed compared to the default branch. Please revert changes before proceeding."
+          # Check if .windsurfrules is in the diff
+          if git diff --name-only origin/main...HEAD | grep -q '^\\.windsurfrules$'; then
+            echo ".windsurfrules is present in this commit. Please remove it from the commit to proceed."
             exit 1
           fi
 
