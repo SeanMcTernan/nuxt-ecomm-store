@@ -61,14 +61,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+  import { ref } from 'vue';
 
-const manImageLoaded = ref(false);
-const womanImageLoaded = ref(false);
+  const manImageLoaded = ref(false);
+  const womanImageLoaded = ref(false);
 
-const shopLinks = [
-  { to: '/mens', text: 'Shop Mens' },
-  { to: '/womens', text: 'Shop Womens' },
-  { to: '/accessories', text: 'Shop Accessories' },
-];
+  const shopLinks = [
+    { to: '/mens', text: 'Shop Mens' },
+    { to: '/womens', text: 'Shop Womens' },
+    { to: '/accessories', text: 'Shop Accessories' },
+  ];
 </script>

@@ -40,7 +40,7 @@
           leave-from-class="opacity-100 scale-100"
           leave-to-class="opacity-0 scale-95"
         >
-          <div class="relative w-64">
+          <div v-if="isSearchVisible" class="relative w-64">
             <input
               v-if="isSearchVisible"
               ref="searchInput"
@@ -175,78 +175,78 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from 'vue';
+  import { ref, nextTick } from 'vue';
 
   interface NavigationLink {
     to: string;
     text: string;
   }
 
-const searchInput = ref<HTMLInputElement | null>(null);
-const isSearchVisible = ref(false);
-const searchQuery = ref('');
-const logo = ref<HTMLImageElement | null>(null);
-const isMobileMenuOpen = ref(false);
+  const searchInput = ref<HTMLInputElement | null>(null);
+  const isSearchVisible = ref(false);
+  const searchQuery = ref('');
+  const logo = ref<HTMLImageElement | null>(null);
+  const isMobileMenuOpen = ref(false);
 
-const navigationLinks: NavigationLink[] = [
-  { to: '/mens', text: 'Mens' },
-  { to: '/womens', text: 'Womens' },
-  { to: '/accessories', text: 'Accessories' },
-  { to: '/sale', text: 'Sale' },
-];
+  const navigationLinks: NavigationLink[] = [
+    { to: '/mens', text: 'Mens' },
+    { to: '/womens', text: 'Womens' },
+    { to: '/accessories', text: 'Accessories' },
+    { to: '/sale', text: 'Sale' },
+  ];
 
-const handleLogoHover = (): void => {
-  if (logo.value) {
-    const style = window.getComputedStyle(logo.value);
-    const transform = style.transform;
-    const match = transform.match(/rotate\(([-\d.]+)deg\)/);
-    if (match) {
-      const currentRotation = parseFloat(match[1]);
-      logo.value.style.setProperty('--current-rotation', currentRotation.toString());
+  const handleLogoHover = (): void => {
+    if (logo.value) {
+      const style = window.getComputedStyle(logo.value);
+      const transform = style.transform;
+      const match = transform.match(/rotate\(([-\d.]+)deg\)/);
+      if (match) {
+        const currentRotation = parseFloat(match[1]);
+        logo.value.style.setProperty('--current-rotation', currentRotation.toString());
+      }
     }
-  }
-};
+  };
 
-const toggleSearch = async (): Promise<void> => {
-  isSearchVisible.value = !isSearchVisible.value;
-  if (isSearchVisible.value) {
-    await nextTick();
-    searchInput.value?.focus();
-  }
-};
+  const toggleSearch = async (): Promise<void> => {
+    isSearchVisible.value = !isSearchVisible.value;
+    if (isSearchVisible.value) {
+      await nextTick();
+      searchInput.value?.focus();
+    }
+  };
 
-const hideSearch = (): void => {
-  isSearchVisible.value = false;
-  searchQuery.value = '';
-};
-
-const handleSearch = (): void => {
-  if (searchQuery.value.trim()) {
-    // Implement actual search functionality
-  }
-  hideSearch();
-};
-
-const openMobileMenu = (): void => {
-  isMobileMenuOpen.value = true;
-};
-
-const toggleMobileMenu = (): void => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value;
-  if (!isMobileMenuOpen.value) {
+  const hideSearch = (): void => {
+    isSearchVisible.value = false;
     searchQuery.value = '';
-  }
-};
+  };
 
-const closeMobileMenu = (): void => {
-  isMobileMenuOpen.value = false;
-  searchQuery.value = '';
-};
+  const handleSearch = (): void => {
+    if (searchQuery.value.trim()) {
+      // Implement actual search functionality
+    }
+    hideSearch();
+  };
 
-const handleMobileSearch = (): void => {
-  if (searchQuery.value.trim()) {
-    // Implement actual search functionality
-    closeMobileMenu();
-  }
-};
+  const openMobileMenu = (): void => {
+    isMobileMenuOpen.value = true;
+  };
+
+  const toggleMobileMenu = (): void => {
+    isMobileMenuOpen.value = !isMobileMenuOpen.value;
+    if (!isMobileMenuOpen.value) {
+      searchQuery.value = '';
+    }
+  };
+
+  const closeMobileMenu = (): void => {
+    isMobileMenuOpen.value = false;
+    searchQuery.value = '';
+  };
+
+  const handleMobileSearch = (): void => {
+    if (searchQuery.value.trim()) {
+      // Implement actual search functionality
+      closeMobileMenu();
+    }
+  };
 </script>

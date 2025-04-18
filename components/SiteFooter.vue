@@ -138,6 +138,6 @@
 </template>
 
 <script setup lang="ts">
-// Component name is defined by the file name: SiteFooter
-// No additional script needed for now
+  // Component name is defined by the file name: SiteFooter
+  // No additional script needed for now
 </script>

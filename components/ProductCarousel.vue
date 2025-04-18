@@ -78,27 +78,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, withDefaults, defineProps } from 'vue';
+  import { ref, withDefaults, defineProps } from 'vue';
 
-const scrollContainer = ref<HTMLElement | null>(null);
+  const scrollContainer = ref<HTMLElement | null>(null);
 
-function scrollLeft() {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({
-      left: -scrollContainer.value.offsetWidth,
-      behavior: 'smooth',
-    });
+  function scrollLeft() {
+    if (scrollContainer.value) {
+      scrollContainer.value.scrollBy({
+        left: -scrollContainer.value.offsetWidth,
+        behavior: 'smooth',
+      });
+    }
   }
-}
 
-function scrollRight() {
-  if (scrollContainer.value) {
-    scrollContainer.value.scrollBy({
-      left: scrollContainer.value.offsetWidth,
-      behavior: 'smooth',
-    });
+  function scrollRight() {
+    if (scrollContainer.value) {
+      scrollContainer.value.scrollBy({
+        left: scrollContainer.value.offsetWidth,
+        behavior: 'smooth',
+      });
+    }
   }
-}
 
   interface Product {
     id: number | string;
@@ -108,16 +108,16 @@ function scrollRight() {
     link: string;
   }
 
-const props = withDefaults(
-  defineProps<{
+  const props = withDefaults(
+    defineProps<{
       title: string;
       products: Product[];
     }>(),
-  {
-    title: '',
-    products: () => [],
-  },
-);
+    {
+      title: '',
+      products: () => [],
+    },
+  );
 </script>
 
 <style scoped>

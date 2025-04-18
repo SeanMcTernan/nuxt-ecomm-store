@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+  import { computed } from 'vue';
 
-import { getProductsQuery } from '../graphql/getProductsQuery';
+  import { getProductsQuery } from '../graphql/getProductsQuery';
 
-useHead({
-  title: 'Athletic Shoe Store | High Performance Running Shoes',
-  meta: [
-    {
-      name: 'description',
-      content:
+  useHead({
+    title: 'Athletic Shoe Store | High Performance Running Shoes',
+    meta: [
+      {
+        name: 'description',
+        content:
           'Shop our collection of high-performance athletic and running shoes. Find the perfect fit for your active lifestyle.',
-    },
-  ],
-});
+      },
+    ],
+  });
 
   interface ProductNode {
     id: string;
@@ -41,19 +41,19 @@ useHead({
     };
   }
 
-const variables = { first: 8 };
-const { data } = await useAsyncQuery<QueryData>(getProductsQuery, variables);
+  const variables = { first: 8 };
+  const { data } = await useAsyncQuery<QueryData>(getProductsQuery, variables);
 
-const formattedProducts = computed(
-  () =>
-    data.value?.products.edges.map(({ node }) => ({
-      id: node.id,
-      title: node.title,
-      price: parseFloat(node.priceRange.maxVariantPrice.amount),
-      image: node.images.edges[0].node.src,
-      link: `products/${node.handle}`,
-    })) || [],
-);
+  const formattedProducts = computed(
+    () =>
+      data.value?.products.edges.map(({ node }) => ({
+        id: node.id,
+        title: node.title,
+        price: parseFloat(node.priceRange.maxVariantPrice.amount),
+        image: node.images.edges[0].node.src,
+        link: `products/${node.handle}`,
+      })) || [],
+  );
 </script>
 
 <template>
