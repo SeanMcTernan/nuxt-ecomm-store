@@ -60,10 +60,13 @@ export default defineNuxtConfig({
     clients: {
       default: {
         // Use fallback values for development if environment variables aren't set
-        httpEndpoint: process.env.SHOPIFY_STOREFRONT_HOST || 'https://mock-shop-graphql.netlify.app/api/graphql',
+        httpEndpoint:
+          process.env.SHOPIFY_STOREFRONT_HOST ||
+          'https://mock-shop-graphql.netlify.app/api/graphql',
         httpLinkOptions: {
           headers: {
-            'X-Shopify-Storefront-Access-Token': process.env.SHOPIFY_STOREFRONT_PUBLIC_ACCESS_TOKEN || 'dummy-token-for-development',
+            'X-Shopify-Storefront-Access-Token':
+              process.env.SHOPIFY_STOREFRONT_PUBLIC_ACCESS_TOKEN || 'dummy-token-for-development',
           },
         },
       },

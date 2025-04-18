@@ -12,8 +12,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
-    "lint:fix": "eslint --ext .ts,.js,.vue --ignore-path .gitignore . --fix"
+    "lint": "eslint --ext .vue,.ts,.js --ignore-path .gitignore --ignore-pattern 'tests/**' --ignore-pattern 'vitest.config.ts' 'components/**' 'layouts/**' 'pages/**' 'graphql/**/*.ts' 'app.vue' 'nuxt.config.ts'",
+    "lint:fix": "eslint --ext .vue,.ts,.js --ignore-path .gitignore --ignore-pattern 'tests/**' --ignore-pattern 'vitest.config.ts' 'components/**' 'layouts/**' 'pages/**' 'graphql/**/*.ts' 'app.vue' 'nuxt.config.ts' --fix"
   },
   "dependencies": {
     "@nuxt/image": "^1.10.0",
