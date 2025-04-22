@@ -26,6 +26,13 @@ jobs:
             fi
           fi
 
+      - name: Check .windsurfrules is not in .gitignore
+        run: |
+          if grep -q '\.windsurfrules' .gitignore; then
+            echo "::error::The .windsurfrules file is listed in .gitignore. This file must remain tracked in the repository."
+            exit 1
+          fi
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
