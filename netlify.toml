@@ -1,7 +1,7 @@
 [build]
 base = "/"
 command = "nx build running-store"
-publish = ".output"
+publish = "dist"
 
 [dev]
 framework = "nuxt"
