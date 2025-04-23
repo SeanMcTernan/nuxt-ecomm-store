@@ -1,7 +1,7 @@
 [build]
-base = "apps/running_store"
-command = "nuxt build"
-publish = ".output/public"
+base = ""
+command = "cd apps/running_store && pnpm build"
+publish = "apps/running_store/.output/public"
 
 [dev]
 framework = "nuxt"
