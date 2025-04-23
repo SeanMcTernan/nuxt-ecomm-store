@@ -1,19 +1,19 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-ecomm-store",
   "private": true,
   "type": "module",
   "scripts": {
     "cypress:open": "nx open-cypress",
     "cypress:run": "nx e2e",
     "test:e2e": "start-server-and-test 'ntl dev' http://localhost:8888 cypress:run",
-    "test:component": "nx test",
-    "build": "nx nuxt:build",
-    "dev": "nx serve",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .vue,.ts,.js 'components/**' 'layouts/**' 'pages/**' 'graphql/**/*.ts' 'app.vue' 'nuxt.config.ts'",
-    "lint:fix": "eslint --ext .vue,.ts,.js 'components/**' 'layouts/**' 'pages/**' 'graphql/**/*.ts' 'app.vue' 'nuxt.config.ts' --fix"
+    "test:component": "nx run-many --target=test --all",
+    "build": "nx run-many --target=build --all",
+    "dev": "nx run running-store:dev",
+    "generate": "nx run running-store:generate",
+    "preview": "nx run running-store:preview",
+    "postinstall": "nx run running-store:postinstall",
+    "lint": "nx run-many --target=lint --all",
+    "lint:fix": "nx run-many --target=lint:fix --all"
   },
   "dependencies": {
     "@nuxt/image": "^1.10.0",

@@ -1,0 +1,60 @@
+{
+  "name": "running-store",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/running_store",
+  "targets": {
+    "build": {
+      "executor": "@nx/nuxt:build",
+      "options": {}
+    },
+    "serve": {
+      "executor": "@nx/nuxt:dev",
+      "options": {}
+    },
+    "dev": {
+      "executor": "@nx/nuxt:dev",
+      "options": {}
+    },
+    "generate": {
+      "executor": "@nx/nuxt:generate",
+      "options": {}
+    },
+    "preview": {
+      "executor": "@nx/nuxt:preview",
+      "options": {}
+    },
+    "postinstall": {
+      "executor": "@nx/nuxt:prepare",
+      "options": {}
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/running_store/**/*.{ts,tsx,vue}",
+          "apps/running_store/package.json"
+        ],
+        "ignorePath": "../../.eslintignore"
+      }
+    },
+    "lint:fix": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/running_store/**/*.{ts,tsx,vue}",
+          "apps/running_store/package.json"
+        ],
+        "fix": true,
+        "ignorePath": "../../.eslintignore"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "config": "apps/running_store/vitest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,9 +1,12 @@
 [build]
-command = "pnpm run build"
-publish = "dist"
+base = "apps/running_store"
+command = "nuxt build"
+publish = ".output/public"
 
 [dev]
-command = "pnpm run dev"
+framework = "nuxt"
+command = "cd apps/running_store && nuxt dev"
+targetsDirectory = "apps/running_store"
 
 [images]
 remote_images = ["cdn.shopify.com", "images.contentstack.io"]

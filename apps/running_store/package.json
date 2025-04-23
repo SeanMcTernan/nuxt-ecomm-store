@@ -1,0 +1,15 @@
+{
+  "name": "running-store",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .vue,.ts,.js 'components/**' 'layouts/**' 'pages/**' 'app.vue' 'nuxt.config.ts'",
+    "lint:fix": "eslint --ext .vue,.ts,.js 'components/**' 'layouts/**' 'pages/**' 'app.vue' 'nuxt.config.ts' --fix",
+    "test": "vitest"
+  }
+}

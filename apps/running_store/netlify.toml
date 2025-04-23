@@ -1,0 +1,10 @@
+[build]
+command = "nuxt build"
+publish = ".output/public"
+
+[dev]
+command = "nuxt dev"
+framework = "nuxt"
+
+[images]
+remote_images = ["cdn.shopify.com", "images.contentstack.io"]
