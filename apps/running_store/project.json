@@ -7,7 +7,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "cd ../../ && nuxt build --output-dir dist",
+        "command": "cd ../../ && nuxt prepare && nuxt build",
         "cwd": "apps/running_store"
       }
     },
