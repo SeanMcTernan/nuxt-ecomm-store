@@ -5,15 +5,12 @@
   },
   "targetDefaults": {
     "build": {
-      "outputs": [
-        "{projectRoot}/.output"
-      ],
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/.output"],
       "cache": true
     },
     "dev": {
-      "outputs": [
-        "{projectRoot}/.nuxt"
-      ],
+      "outputs": ["{projectRoot}/.nuxt"],
       "cache": true
     },
     "cypress:open": {

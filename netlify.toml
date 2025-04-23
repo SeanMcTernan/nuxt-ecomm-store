@@ -1,11 +1,11 @@
 [build]
-base = "/apps/running_store"
-command = "pnpm run build"
-publish = "dist"
+base = "/"
+command = "nx build running-store"
+publish = ".output"
 
 [dev]
 framework = "nuxt"
-command = "cd apps/running_store && nuxt dev"
+command = "nx dev running-store"
 targetsDirectory = "apps/running_store"
 
 [images]

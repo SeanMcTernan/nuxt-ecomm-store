@@ -5,18 +5,25 @@
   "sourceRoot": "apps/running_store",
   "targets": {
     "build": {
-      "executor": "@nx/nuxt:build",
+      "executor": "nx:run-commands",
       "options": {
-        "dest": "dist/apps/running_store"
+        "command": "cd ../../ && nuxt build --output-dir dist",
+        "cwd": "apps/running_store"
       }
     },
     "serve": {
-      "executor": "@nx/nuxt:dev",
-      "options": {}
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nuxt dev",
+        "cwd": "apps/running_store"
+      }
     },
     "dev": {
-      "executor": "@nx/nuxt:dev",
-      "options": {}
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nuxt dev",
+        "cwd": "apps/running_store"
+      }
     },
     "generate": {
       "executor": "@nx/nuxt:generate",

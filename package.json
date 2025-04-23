@@ -7,7 +7,7 @@
     "cypress:run": "nx e2e",
     "test:e2e": "start-server-and-test 'ntl dev' http://localhost:8888 cypress:run",
     "test:component": "nx run-many --target=test --all",
-    "build": "nx run-many --target=build --all",
+    "build": "nx build running-store",
     "dev": "nx run running-store:dev",
     "generate": "nx run running-store:generate",
     "preview": "nx run running-store:preview",
