@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nx/nuxt:build",
-      "options": {}
+      "options": {
+        "dest": "dist/apps/running_store"
+      }
     },
     "serve": {
       "executor": "@nx/nuxt:dev",
