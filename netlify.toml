@@ -1,6 +1,6 @@
 [build]
 base = ""
-command = "cd apps/running_store && pnpm build"
+command = "pnpm install && npx nx run running-store:postinstall && npx nx run running-store:build"
 publish = "apps/running_store/.output/public"
 
 [dev]
