@@ -1,6 +1,6 @@
 [build]
 command = "nuxt build"
-publish = "dist"
+publish = "apps/running_store/dist"
 
 [dev]
 command = "nuxt dev"
