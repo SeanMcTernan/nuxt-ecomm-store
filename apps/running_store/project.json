@@ -34,8 +34,11 @@
       "options": {}
     },
     "postinstall": {
-      "executor": "@nx/nuxt:prepare",
-      "options": {}
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd ../../ && nuxt prepare",
+        "cwd": "apps/running_store"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
