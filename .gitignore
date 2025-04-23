@@ -40,3 +40,10 @@ cypress.env.json
 localhost-key.pem
 
 
+
+
+
+.nx/cache
+.nx/workspace-data
+vite.config.*.timestamp*
+vitest.config.*.timestamp*

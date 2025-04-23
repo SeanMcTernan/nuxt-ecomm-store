@@ -1,0 +1,75 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "outputs": [
+        "{projectRoot}/.output"
+      ],
+      "cache": true
+    },
+    "dev": {
+      "outputs": [
+        "{projectRoot}/.nuxt"
+      ],
+      "cache": true
+    },
+    "cypress:open": {
+      "cache": true
+    },
+    "cypress:run": {
+      "cache": true
+    },
+    "test:e2e": {
+      "cache": true
+    },
+    "test:component": {
+      "cache": true
+    },
+    "generate": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "lint:fix": {
+      "cache": true
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
+    },
+    {
+      "plugin": "@nx/nuxt/plugin",
+      "options": {
+        "buildTargetName": "nuxt:build",
+        "serveTargetName": "serve",
+        "buildDepsTargetName": "nuxt:build-deps",
+        "watchDepsTargetName": "nuxt:watch-deps",
+        "serveStaticTargetName": "serve-static",
+        "buildStaticTargetName": "build-static"
+      }
+    }
+  ],
+  "nxCloudId": "6808577c4343613ff52191d1"
+}
