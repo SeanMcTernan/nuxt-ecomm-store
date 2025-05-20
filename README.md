@@ -78,7 +78,7 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 Run quality testing before pushing:
 
-First setup the pre-push hook:
+First setup the pre-push hook as follows:
 
 ```
 cd .git/hooks
