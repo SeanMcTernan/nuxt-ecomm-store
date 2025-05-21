@@ -127,7 +127,7 @@ fi
 
 echo "✅ Component tests passed!"
 
-echo "\n🚀 All checks have passed. Pushing to remote..."
+echo "\n🚀 All checks have passed.. Pushing to remote..."
 
 exit 0
 
