@@ -41,26 +41,33 @@
     };
   }
 
-  const variables = { first: 8 };
-  const { data } = await useAsyncQuery<QueryData>(getProductsQuery, variables);
+  // Fetch best sellers (most popular products)
+  const bestSellersVariables = { first: 8, query: 'tag:best-seller' };
+  const { data: bestSellersData } = await useAsyncQuery<QueryData>(getProductsQuery, bestSellersVariables);
 
-  const formattedProducts = computed(
-    () =>
-      data.value?.products.edges.map(({ node }) => ({
-        id: node.id,
-        title: node.title,
-        price: parseFloat(node.priceRange.maxVariantPrice.amount),
-        image: node.images.edges[0].node.src,
-        link: `products/${node.handle}`,
-      })) || [],
-  );
+  // Fetch new arrivals (sort by created_at)
+  const newArrivalsVariables = { first: 8, query: 'tag:new-arrival' };
+  const { data: newArrivalsData } = await useAsyncQuery<QueryData>(getProductsQuery, newArrivalsVariables);
+
+  const formatProducts = (data: any) => 
+    data?.products.edges.map(({ node }: { node: ProductNode }) => ({
+      id: node.id,
+      title: node.title,
+      price: parseFloat(node.priceRange.maxVariantPrice.amount),
+      image: node.images.edges[0].node.src,
+      link: `products/${node.handle}`,
+    })) || [];
+
+  const bestSellers = computed(() => formatProducts(bestSellersData.value));
+  const newArrivals = computed(() => formatProducts(newArrivalsData.value));
 </script>
 
 <template>
   <div>
     <HeroBanner />
     <div class="space-y-32 px-8">
-      <LazyProductCarousel title="BEST SELLERS" :products="formattedProducts" />
+      <LazyProductCarousel title="BEST SELLERS" :products="bestSellers" />
+      <LazyProductCarousel title="NEW ARRIVALS" :products="newArrivals" />
       <LazyShoeFinder />
     </div>
   </div>
