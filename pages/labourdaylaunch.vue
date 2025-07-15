@@ -198,8 +198,6 @@
       >
         ✅ Success! You're on the list for early access.
       </div>
-
-
     </div>
   </div>
 </template>
