@@ -74,7 +74,9 @@
             />
           </div>
           <div class="text-center mt-6">
-            <span class="text-white/80 text-lg font-medium backdrop-blur-sm bg-black/20 px-6 py-3 rounded-full">
+            <span
+              class="text-white/80 text-lg font-medium backdrop-blur-sm bg-black/20 px-6 py-3 rounded-full"
+            >
               Velocity - Hoka Collection
             </span>
           </div>
