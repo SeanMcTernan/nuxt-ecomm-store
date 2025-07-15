@@ -49,7 +49,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/apollo'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/apollo', '@nuxt/icon'],
 
   image: {
     provider: 'netlify',
