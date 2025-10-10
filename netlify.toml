@@ -1,5 +1,16 @@
 [build]
+functions = "netlify/functions"
+
+# Ignore builds only for production
+[context.production]
 ignore = "exit 0"
+
+# Allow builds for deploy previews and branch deploys
+[context.deploy-preview]
+ignore = "exit 1"
+
+[context.branch-deploy]
+ignore = "exit 1"
 
 [images]
 remote_images = ["cdn.shopify.com", "images.contentstack.io"]
