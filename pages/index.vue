@@ -4,7 +4,7 @@
   import { getProductsQuery } from '../graphql/getProductsQuery';
 
   useHead({
-    title: 'Athletic Shoe Store | High Performance Running Shoes for Men and Women',
+    title: 'Athletic Shoe Store',
     meta: [
       {
         name: 'description',
