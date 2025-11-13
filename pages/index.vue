@@ -58,7 +58,6 @@
 
 <template>
   <div>
-    <DiscountModal />
     <HeroBanner />
     <div class="space-y-32 px-8">
       <LazyProductCarousel title="BEST SELLERS" :products="formattedProducts" />
